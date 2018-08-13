@@ -8,6 +8,12 @@
 - blockchain is a database that stores record of every transaction that take place
 - transaction will take some time due to verification (mining)
 
+# Architecture
+- Server role diminished
+- updating/writing of data should not go through server anymore
+- server should not save or contains user public/private keys
+- client will have to be more intelligent, as writing to blockchain will be done in client
+
 # Solidity
 - 'msg' global variable (anytime a function run in a contract, always available)
 ..* msg.data -> the data field of transaction
@@ -24,6 +30,7 @@
 # Metamask
 - one account address throughout all network (main, ropsten, rinkedby...)
 - public and private key are for authentication of fund transfering
+- once the Metamask is installed, it will automatically inject web3 to any page of the browser
 
 # Web3.js
 - a collection of libraries which allow you to interact with a local or remote ethereum node, using a HTTP or IPC connection.
@@ -36,3 +43,6 @@
 
 # Questions
 - more nodes better? faster?
+- now that we depends on Metamask on browser as provider. What happen if user doesn't have Metamask installed?
+- do we have to copy the address and abi everytime we deploy a contract to create local contract instance?
+- what can we do to optimize the long time during transaction?
