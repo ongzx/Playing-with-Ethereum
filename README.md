@@ -7,6 +7,8 @@
 - each node will contain a full copy of the blockchain
 - blockchain is a database that stores record of every transaction that take place
 - transaction will take some time due to verification (mining)
+- deployment of contract cost money
+- a contract can create another contract
 
 # Architecture
 - Server role diminished
@@ -27,6 +29,39 @@
 - 'modifier' can be use for shared function
 - every transaction is going to cost some gas (e.g, if transfer 2 ether to another address, the new amount will receive is slightly less than 2 ether)
 
+# Storage vs Memory
+- * storage and memory are referring to 2 separate topic (where contract stores data or how solidity variables store values)
+... storage: holds data between function call (e.g variables, like computer hard drive)
+... memory: temporary place to store data (e.g function arguments, like computer RAM)
+... int[] storage myArray = numbers; (point to the same storage, changing value will affect the one in storage)
+... int[] memory myArray = numbers; (point to a new copy in memory)
+
+# Data Structure
+- bool (true or false)
+- int / uint (signed and unsigned integer)
+- fixed / ufixed 
+- address (20 bytes value of Ethereum address)
+- fixed array (e.g. int[3] --> [1,2,3], unchanging length)
+- dynamic array (e.g. int[] --> [1,2,3], size can change over time)
+- mapping (collection of key value pairs, e.g. javascript object)
+- struct (collection of key value pairs that can have different type)
+```
+struct Car {
+    string make;
+    string model;
+    uint value;
+}
+```
+
+# Mapping vs Array
+- Array (linear time search)
+- Mapping (constant time search)
+... mapping(address => bool) public approvers; //default value will be false
+... * Keys are not stored in Mappings (e.g. not able to get the keys like Javascript Object.keys)
+... 'key' -> hashing function -> return index -> retrieve the value based on index
+... values are not iterable, not able to loop inside Mapping, can only lookup value through mapping['key']
+... all values exist in Mapping, if mapping['notexist'] will return **empty string** instead of undefined
+
 # Metamask
 - one account address throughout all network (main, ropsten, rinkedby...)
 - public and private key are for authentication of fund transfering
@@ -46,3 +81,7 @@
 - now that we depends on Metamask on browser as provider. What happen if user doesn't have Metamask installed?
 - do we have to copy the address and abi everytime we deploy a contract to create local contract instance?
 - what can we do to optimize the long time during transaction?
+- when is the new block created in Ethereum?
+- is the chain linear?
+- what is an instance of the contract? how to visualize in the context of ethereum blockchain?
+- what happen when you deploy or delete a contract in Remix?
