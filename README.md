@@ -1,5 +1,7 @@
 # Playing around with Ethereum
 
+> Smart contract is just marketing-speak for code that you can run on a blockchain.
+
 # General
 - there are many different ethereum network
 - node is just any machine running ethereum client
@@ -9,6 +11,7 @@
 - transaction will take some time due to verification (mining)
 - deployment of contract cost money
 - a contract can create another contract
+- querying the blockchain can be done from public node, meaning no Metamask/Mist is required
 
 # Architecture
 - Server role diminished
@@ -63,6 +66,7 @@ struct Car {
 ... all values exist in Mapping, if mapping['notexist'] will return **empty string** instead of undefined
 
 # Metamask
+- browser wallet (e.g. keychain that hold your keys)
 - one account address throughout all network (main, ropsten, rinkedby...)
 - public and private key are for authentication of fund transfering
 - once the Metamask is installed, it will automatically inject web3 to any page of the browser
@@ -76,12 +80,24 @@ struct Car {
 - contract source -> Solidity compiler -> produce ABI and bytecode -> bytecode will be deploy to network
 - Truffle (https://truffleframework.com/) for contract creation, local test and deployment (still early, will break, not stable yet)
 
+# ERC-20
+- standard describing Ethereum tokens
+- cryptocurrency built on the Ethereum blockchain
+
 # Questions
 - more nodes better? faster?
-- now that we depends on Metamask on browser as provider. What happen if user doesn't have Metamask installed?
+- now that we depends on Metamask on browser as provider. What happen if user doesn't have Metamask installed? What is the Metamask role? Is there any alternative?
 - do we have to copy the address and abi everytime we deploy a contract to create local contract instance?
 - what can we do to optimize the long time during transaction?
 - when is the new block created in Ethereum?
-- is the chain linear?
+- what is the relationship between contracts and blockchain?
+- is the chain linear? how to visualize it?
 - what is an instance of the contract? how to visualize in the context of ethereum blockchain?
 - what happen when you deploy or delete a contract in Remix?
+- how to decide the amount of gas when deploying contract? Is there any recommended amount?
+- who maintain the testnet? 
+- where the code physically resides in the blockchain?
+- will my locally deploy contract be found in the rinkedby network? Once deployed, can I take it down?
+
+# References
+- https://hackernoon.com/ethereums-erc-20-tokens-explained-simply-88f5f8a7ae90
